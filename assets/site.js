@@ -70,7 +70,28 @@ if(hero){
   heroCanvas.id='hero-dots';
   hero.prepend(heroCanvas);
   const hctx=heroCanvas.getContext('2d');
-  let hw=0,hh=0,hdpr=1,dots=[];
+
+  let hw=0,hh=0,hdpr=1,atoms=[];
+  const TAU=Math.PI*2;
+
+  function makeAtom(){
+    const speed=.35+Math.random()*.65;
+    const angle=Math.random()*TAU;
+    return {
+      x:Math.random()*hw,
+      y:Math.random()*hh,
+      vx:Math.cos(angle)*speed,
+      vy:Math.sin(angle)*speed,
+      speed,
+      r:.8+Math.random()*1.7,
+      glow:5+Math.random()*8,
+      alpha:.35+Math.random()*.45,
+      phase:Math.random()*TAU,
+      turn:(Math.random()-.5)*.018,
+      wander:Math.random()*TAU,
+      wanderRate:.008+Math.random()*.02
+    };
+  }
 
   function resizeHeroDots(){
     hdpr=Math.min(window.devicePixelRatio||1,2);
@@ -81,43 +102,81 @@ if(hero){
     heroCanvas.style.width=hw+'px';
     heroCanvas.style.height=hh+'px';
     hctx.setTransform(hdpr,0,0,hdpr,0,0);
-    const count=Math.max(26,Math.floor(hw/35));
-    dots=Array.from({length:count},()=>({
-      x:Math.random()*hw,
-      y:Math.random()*hh,
-      vx:(Math.random()-.5)*.28,
-      vy:(Math.random()-.5)*.18,
-      r:Math.random()*1.8+.7,
-      a:Math.random()*.5+.3,
-      p:Math.random()*Math.PI*2
-    }));
+
+    const count=Math.max(34,Math.floor(hw/28));
+    atoms=Array.from({length:count},makeAtom);
   }
 
   function drawHeroDots(){
     hctx.clearRect(0,0,hw,hh);
-    for(const d of dots){
-      d.x+=d.vx;
-      d.y+=d.vy;
-      d.p+=.025;
-      if(d.x<-12)d.x=hw+12;
-      if(d.x>hw+12)d.x=-12;
-      if(d.y<-12)d.y=hh+12;
-      if(d.y>hh+12)d.y=-12;
-      const pulse=.55+.45*Math.sin(d.p);
-      const alpha=Math.max(.15,d.a*pulse);
-      const g=hctx.createRadialGradient(d.x,d.y,0,d.x,d.y,d.r*7);
-      g.addColorStop(0,'rgba(126,232,255,'+alpha+')');
-      g.addColorStop(.28,'rgba(69,215,255,'+(alpha*.55)+')');
+
+    for(let i=0;i<atoms.length;i++){
+      const a=atoms[i];
+
+      a.phase+=.035;
+      a.wander+=a.wanderRate;
+
+      // Curved Brownian style steering so particles roam instead of drifting straight.
+      const steerX=Math.cos(a.wander)*.022;
+      const steerY=Math.sin(a.wander*1.17)*.022;
+      a.vx+=steerX;
+      a.vy+=steerY;
+
+      // Slowly rotate velocity to create orbit-like paths.
+      const ca=Math.cos(a.turn),sa=Math.sin(a.turn);
+      const nvx=a.vx*ca-a.vy*sa;
+      const nvy=a.vx*sa+a.vy*ca;
+      a.vx=nvx;
+      a.vy=nvy;
+
+      // Keep each atom near its preferred speed.
+      const current=Math.hypot(a.vx,a.vy)||1;
+      a.vx=(a.vx/current)*a.speed;
+      a.vy=(a.vy/current)*a.speed;
+
+      a.x+=a.vx;
+      a.y+=a.vy;
+
+      // Soft bounce keeps motion visible inside the banner.
+      if(a.x<8){a.x=8;a.vx=Math.abs(a.vx);a.turn*=-1}
+      if(a.x>hw-8){a.x=hw-8;a.vx=-Math.abs(a.vx);a.turn*=-1}
+      if(a.y<8){a.y=8;a.vy=Math.abs(a.vy);a.turn*=-1}
+      if(a.y>hh-8){a.y=hh-8;a.vy=-Math.abs(a.vy);a.turn*=-1}
+
+      // Very faint short trails between nearby atoms.
+      for(let j=i+1;j<atoms.length;j++){
+        const b=atoms[j];
+        const dx=a.x-b.x,dy=a.y-b.y;
+        const d=Math.hypot(dx,dy);
+        if(d<78){
+          const la=(1-d/78)*.045;
+          hctx.strokeStyle='rgba(69,215,255,'+la+')';
+          hctx.lineWidth=.45;
+          hctx.beginPath();
+          hctx.moveTo(a.x,a.y);
+          hctx.lineTo(b.x,b.y);
+          hctx.stroke();
+        }
+      }
+
+      const pulse=.65+.35*Math.sin(a.phase);
+      const alpha=a.alpha*pulse;
+      const g=hctx.createRadialGradient(a.x,a.y,0,a.x,a.y,a.glow);
+      g.addColorStop(0,'rgba(226,252,255,'+Math.min(.95,alpha+.25)+')');
+      g.addColorStop(.22,'rgba(126,232,255,'+alpha+')');
+      g.addColorStop(.55,'rgba(69,215,255,'+(alpha*.28)+')');
       g.addColorStop(1,'rgba(69,215,255,0)');
       hctx.fillStyle=g;
       hctx.beginPath();
-      hctx.arc(d.x,d.y,d.r*7,0,Math.PI*2);
+      hctx.arc(a.x,a.y,a.glow,0,TAU);
       hctx.fill();
-      hctx.fillStyle='rgba(220,250,255,'+Math.min(.9,alpha+.18)+')';
+
+      hctx.fillStyle='rgba(238,253,255,'+Math.min(.96,alpha+.32)+')';
       hctx.beginPath();
-      hctx.arc(d.x,d.y,d.r,0,Math.PI*2);
+      hctx.arc(a.x,a.y,a.r,0,TAU);
       hctx.fill();
     }
+
     requestAnimationFrame(drawHeroDots);
   }
 
