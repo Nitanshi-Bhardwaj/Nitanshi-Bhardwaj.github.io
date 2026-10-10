@@ -63,3 +63,65 @@ function draw(){
 window.addEventListener('resize',resize);
 resize();
 draw();
+
+const hero=document.querySelector('.hero');
+if(hero){
+  const heroCanvas=document.createElement('canvas');
+  heroCanvas.id='hero-dots';
+  hero.prepend(heroCanvas);
+  const hctx=heroCanvas.getContext('2d');
+  let hw=0,hh=0,hdpr=1,dots=[];
+
+  function resizeHeroDots(){
+    hdpr=Math.min(window.devicePixelRatio||1,2);
+    hw=hero.clientWidth;
+    hh=hero.clientHeight;
+    heroCanvas.width=Math.floor(hw*hdpr);
+    heroCanvas.height=Math.floor(hh*hdpr);
+    heroCanvas.style.width=hw+'px';
+    heroCanvas.style.height=hh+'px';
+    hctx.setTransform(hdpr,0,0,hdpr,0,0);
+    const count=Math.max(26,Math.floor(hw/35));
+    dots=Array.from({length:count},()=>({
+      x:Math.random()*hw,
+      y:Math.random()*hh,
+      vx:(Math.random()-.5)*.28,
+      vy:(Math.random()-.5)*.18,
+      r:Math.random()*1.8+.7,
+      a:Math.random()*.5+.3,
+      p:Math.random()*Math.PI*2
+    }));
+  }
+
+  function drawHeroDots(){
+    hctx.clearRect(0,0,hw,hh);
+    for(const d of dots){
+      d.x+=d.vx;
+      d.y+=d.vy;
+      d.p+=.025;
+      if(d.x<-12)d.x=hw+12;
+      if(d.x>hw+12)d.x=-12;
+      if(d.y<-12)d.y=hh+12;
+      if(d.y>hh+12)d.y=-12;
+      const pulse=.55+.45*Math.sin(d.p);
+      const alpha=Math.max(.15,d.a*pulse);
+      const g=hctx.createRadialGradient(d.x,d.y,0,d.x,d.y,d.r*7);
+      g.addColorStop(0,'rgba(126,232,255,'+alpha+')');
+      g.addColorStop(.28,'rgba(69,215,255,'+(alpha*.55)+')');
+      g.addColorStop(1,'rgba(69,215,255,0)');
+      hctx.fillStyle=g;
+      hctx.beginPath();
+      hctx.arc(d.x,d.y,d.r*7,0,Math.PI*2);
+      hctx.fill();
+      hctx.fillStyle='rgba(220,250,255,'+Math.min(.9,alpha+.18)+')';
+      hctx.beginPath();
+      hctx.arc(d.x,d.y,d.r,0,Math.PI*2);
+      hctx.fill();
+    }
+    requestAnimationFrame(drawHeroDots);
+  }
+
+  window.addEventListener('resize',resizeHeroDots);
+  resizeHeroDots();
+  drawHeroDots();
+}
