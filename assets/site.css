@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500;1,600&family=Fira+Code:wght@300;400;500&display=swap');
 
 :root{
   --bg:#06111f;
@@ -20,7 +21,7 @@
 html{scroll-behavior:smooth;background:var(--bg)}
 body{
   color:var(--white);
-  font-family:'Outfit',sans-serif;
+  font-family:'Inter Tight',sans-serif;
   font-weight:300;
   min-height:100vh;
   background:
@@ -74,7 +75,7 @@ nav{
   box-shadow:0 10px 30px rgba(0,0,0,.16);
 }
 .nav-mark{
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Inter Tight',sans-serif;
   font-size:1.35rem;
   letter-spacing:.16em;
   text-decoration:none;
@@ -165,7 +166,7 @@ nav{
   box-shadow:0 0 10px rgba(69,215,255,.7);
 }
 .hero h1,.page-head h1{
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Inter Tight',sans-serif;
   font-size:clamp(4rem,10vw,9rem);
   line-height:.88;
   letter-spacing:.025em;
@@ -173,7 +174,7 @@ nav{
   text-shadow:0 0 24px rgba(79,140,255,.08);
 }
 .hero h1 em,.page-head h1 em{
-  font-family:'Libre Baskerville',serif;
+  font-family:'Inter Tight',sans-serif;
   font-style:italic;
   color:var(--cyan);
   font-size:.74em;
@@ -273,7 +274,7 @@ nav{
   letter-spacing:.14em;
 }
 .section-title{
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Inter Tight',sans-serif;
   font-size:clamp(2rem,4vw,3.7rem);
   letter-spacing:.05em;
 }
@@ -302,7 +303,7 @@ nav{
 }
 .project-mini:hover{background:rgba(9,34,53,.85);border-color:rgba(69,215,255,.3)}
 .project-mini h3{
-  font-family:'Libre Baskerville',serif;
+  font-family:'Inter Tight',sans-serif;
   font-size:1rem;
   line-height:1.4;
   margin-bottom:12px;
@@ -339,7 +340,7 @@ nav{
 .prose p{color:var(--text);line-height:1.9;margin-bottom:18px;font-size:1rem}
 .prose strong{color:var(--white);font-weight:400}
 .quote{
-  font-family:'Libre Baskerville',serif;
+  font-family:'Inter Tight',sans-serif;
   font-style:italic;
   font-size:1.18rem;
   line-height:1.65;
@@ -357,7 +358,7 @@ nav{
   box-shadow:inset 0 0 24px rgba(69,215,255,.018);
 }
 .info-card h3{
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Inter Tight',sans-serif;
   font-size:1.5rem;
   letter-spacing:.05em;
   margin-bottom:8px;
@@ -413,7 +414,7 @@ nav{
   box-shadow:0 0 12px rgba(69,215,255,.45);
 }
 .period{font-family:'Fira Code',monospace;font-size:.64rem;color:var(--muted);line-height:1.7}
-.role{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.05em}
+.role{font-family:'Inter Tight',sans-serif;font-size:1.7rem;letter-spacing:.05em}
 .org{font-family:'Fira Code',monospace;color:var(--cyan);font-size:.68rem;letter-spacing:.08em;margin:5px 0 14px}
 .bullets{list-style:none}
 .bullets li{color:var(--text);line-height:1.75;margin:7px 0;padding-left:18px;position:relative}
@@ -436,7 +437,7 @@ nav{
   color:rgba(69,215,255,.22);
 }
 .paper-label{font-family:'Fira Code',monospace;color:var(--cyan);font-size:.64rem;letter-spacing:.14em;margin-bottom:12px}
-.paper h2{font-family:'Libre Baskerville',serif;font-size:1.3rem;line-height:1.45;margin-bottom:12px}
+.paper h2{font-family:'Inter Tight',sans-serif;font-size:1.3rem;line-height:1.45;margin-bottom:12px}
 .paper h2 a{text-decoration:none}
 .paper h2 a:hover{color:var(--cyan2)}
 .paper p{color:var(--text);line-height:1.8;max-width:780px}
@@ -457,7 +458,7 @@ nav{
   font-size:.54rem;
   letter-spacing:.18em;
 }
-.project-detail h2{font-family:'Libre Baskerville',serif;font-size:1.35rem;line-height:1.45;margin-bottom:14px}
+.project-detail h2{font-family:'Inter Tight',sans-serif;font-size:1.35rem;line-height:1.45;margin-bottom:14px}
 .project-detail p{color:var(--text);line-height:1.8;max-width:820px;margin-bottom:16px}
 .project-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
 .contact-grid{
@@ -483,7 +484,7 @@ nav{
   border-color:rgba(69,215,255,.4);
   box-shadow:var(--glow);
 }
-.contact-card strong{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.04em}
+.contact-card strong{font-family:'Inter Tight',sans-serif;font-size:2rem;letter-spacing:.04em}
 .contact-card span{font-family:'Fira Code',monospace;color:var(--muted);font-size:.64rem}
 footer{
   padding:25px 8vw;
@@ -579,7 +580,7 @@ footer{
   margin:26px 0 30px;
 }
 .preview-list a{
-  font-family:'Libre Baskerville',serif;
+  font-family:'Inter Tight',sans-serif;
   font-size:1rem;
   line-height:1.45;
   color:#dcebf5;
@@ -715,3 +716,20 @@ footer{
   opacity:.95;
 }
 .hero-inner{position:relative;z-index:4}
+
+/* Inter Tight refinement */
+.hero h1,.page-head h1,.section-title,.role,.info-card h3,.contact-card strong,.nav-mark{
+  font-family:'Inter Tight',sans-serif;
+  font-weight:700;
+}
+.hero h1,.page-head h1{letter-spacing:-.045em}
+.hero h1 em,.page-head h1 em{
+  font-family:'Inter Tight',sans-serif;
+  font-style:italic;
+  font-weight:600;
+  letter-spacing:-.035em;
+}
+.section-title{letter-spacing:-.025em}
+.project-mini h3,.preview-list a,.paper h2,.project-detail h2,.quote{
+  font-family:'Inter Tight',sans-serif;
+}
