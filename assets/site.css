@@ -753,3 +753,89 @@ footer{
   letter-spacing:-.015em;
   font-weight:650;
 }
+
+
+/* Typography consistency and homepage cleanup */
+.hero h1,
+.page-head h1{
+  font-family:'Inter Tight',sans-serif;
+  font-size:clamp(2.9rem,5.6vw,5.5rem);
+  line-height:1.02;
+  letter-spacing:-.015em;
+  word-spacing:.12em;
+  font-weight:700;
+  font-style:normal;
+}
+.hero h1 em,
+.page-head h1 em{
+  font:inherit;
+  color:inherit;
+  letter-spacing:inherit;
+  word-spacing:inherit;
+  text-shadow:none;
+}
+.section-title{
+  font-family:'Inter Tight',sans-serif;
+  font-weight:700;
+  letter-spacing:-.01em;
+  word-spacing:.08em;
+}
+.role,
+.info-card h3,
+.project-mini h3,
+.paper h2,
+.project-detail h2,
+.preview-list a{
+  font-family:'Inter Tight',sans-serif;
+  letter-spacing:0;
+  word-spacing:.04em;
+}
+.role{font-weight:600}
+#skills.home-block{border-bottom:none}
+.skill-group:last-child{border-bottom:1px solid var(--line)}
+
+.home-contact{
+  grid-column:1/-1;
+  margin-top:8px;
+  padding:30px 0 4px;
+}
+.home-contact .kicker{margin-bottom:18px}
+.contact-mini-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+}
+.contact-mini{
+  min-height:92px;
+  padding:16px 18px;
+  border:1px solid rgba(69,215,255,.18);
+  background:rgba(7,24,39,.72);
+  text-decoration:none;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:.2s;
+}
+.contact-mini:hover{
+  border-color:rgba(69,215,255,.45);
+  background:rgba(10,34,53,.86);
+  box-shadow:0 0 20px rgba(69,215,255,.06);
+}
+.contact-mini strong{
+  font-family:'Inter Tight',sans-serif;
+  font-size:1.05rem;
+  font-weight:600;
+  letter-spacing:0;
+}
+.contact-mini span{
+  font-family:'Fira Code',monospace;
+  color:var(--muted);
+  font-size:.56rem;
+  line-height:1.45;
+}
+@media(max-width:900px){
+  .contact-mini-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:560px){
+  .contact-mini-grid{grid-template-columns:1fr}
+}
