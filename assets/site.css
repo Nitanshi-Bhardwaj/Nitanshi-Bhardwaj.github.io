@@ -118,21 +118,6 @@ nav{
   background:
     linear-gradient(90deg,rgba(6,17,31,.96) 0%,rgba(6,17,31,.84) 45%,rgba(6,17,31,.36) 100%);
 }
-.hero::before{
-  content:'';
-  position:absolute;
-  right:6vw;
-  top:13%;
-  width:min(34vw,460px);
-  aspect-ratio:1;
-  border:1px solid rgba(69,215,255,.16);
-  border-radius:50%;
-  box-shadow:
-    0 0 0 32px rgba(79,140,255,.025),
-    0 0 0 64px rgba(69,215,255,.018),
-    inset 0 0 40px rgba(69,215,255,.03);
-  animation:orb 10s ease-in-out infinite;
-}
 .hero::after{
   content:'+   +   +   +   +';
   position:absolute;
@@ -513,9 +498,7 @@ footer{
   .section-grid,.content-grid,.contact-grid{grid-template-columns:1fr}
   .project-mini-list{grid-template-columns:1fr}
   .timeline-item{grid-template-columns:1fr;gap:14px}
-  .timeline-item::before{display:none}
-  .hero::before{width:70vw;right:-18vw;opacity:.45}
-  footer{flex-direction:column}
+  .timeline-item::before{display:none}  footer{flex-direction:column}
 }
 
 
@@ -732,4 +715,41 @@ footer{
 .section-title{letter-spacing:-.025em}
 .project-mini h3,.preview-list a,.paper h2,.project-detail h2,.quote{
   font-family:'Inter Tight',sans-serif;
+}
+
+/* Title sizing and consistency */
+.hero h1,
+.page-head h1{
+  font-family:'Inter Tight',sans-serif;
+  font-size:clamp(3.1rem,6.4vw,6.2rem);
+  line-height:.96;
+  letter-spacing:-.035em;
+  font-weight:700;
+  font-style:normal;
+  color:var(--white);
+}
+.hero h1 em,
+.page-head h1 em{
+  font-family:'Inter Tight',sans-serif;
+  font-size:1em;
+  line-height:inherit;
+  letter-spacing:inherit;
+  font-weight:700;
+  font-style:normal;
+  color:inherit;
+  text-shadow:none;
+}
+.section-title{
+  font-family:'Inter Tight',sans-serif;
+  font-size:clamp(1.9rem,3.2vw,2.9rem);
+  line-height:1;
+  letter-spacing:-.025em;
+  font-weight:700;
+}
+.role{
+  font-family:'Inter Tight',sans-serif;
+  font-size:1.5rem;
+  line-height:1.15;
+  letter-spacing:-.015em;
+  font-weight:650;
 }
