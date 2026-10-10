@@ -6,7 +6,7 @@
 <title>Nitanshi Bhardwaj | AI and Data Science</title>
 <meta name="description" content="Nitanshi Bhardwaj, Columbia MS Data Science, AI and Machine Learning portfolio"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Code:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="assets/site.css"/>
+<link rel="stylesheet" href="assets/site.css?v=20261009-3"/>
 </head>
 <body>
 <nav>
@@ -35,7 +35,7 @@
 
 <main class="home-sections">
 
-<section id="profile" class="page" style="padding-left:0;padding-right:0">
+<section id="profile" class="page home-block">
 <div class="kicker">Profile</div>
 <div class="content-grid">
 <div class="prose">
@@ -46,13 +46,13 @@
 <p>I care about AI systems that are not only capable, but also interpretable, reliable, and useful in real workflows.</p>
 </div>
 <div>
-<div class="info-card"><h3>Columbia University</h3><div class="meta">MS in Data Science<br/><strong>GPA 3.70 / 4.00</strong><br/>2025 to 2026<br/><br/>DSI Research Scholar<br/>Teaching Assistant, Ethical and Responsible AI</div></div>
+<div class="info-card"><h3>Columbia University</h3><div class="meta">MS in Data Science<br/><strong>GPA 3.70 / 4.00</strong><br/>2025 to 2026<br/><br/>DSI Research Scholar<br/>Teaching Assistant</div></div>
 <div class="info-card"><h3>SRM Institute of Science and Technology</h3><div class="meta">BTech in Artificial Intelligence<br/><strong>GPA 9.02 / 10.00</strong><br/>2021 to 2025</div></div>
 </div>
 </div>
 </section>
 
-<section id="skills" class="page" style="padding-left:0;padding-right:0">
+<section id="skills" class="page home-block">
 <div class="kicker">Technical Skills</div>
 <div class="skill-group"><h3>Languages</h3><div class="skill-pills"><span class="skill-pill">Python</span><span class="skill-pill">SQL</span><span class="skill-pill">R</span><span class="skill-pill">MATLAB</span><span class="skill-pill">C</span><span class="skill-pill">HTML</span></div></div>
 <div class="skill-group"><h3>ML Frameworks</h3><div class="skill-pills"><span class="skill-pill">PyTorch</span><span class="skill-pill">TensorFlow</span><span class="skill-pill">scikit-learn</span><span class="skill-pill">XGBoost</span><span class="skill-pill">Hugging Face</span><span class="skill-pill">Keras</span></div></div>
@@ -62,34 +62,55 @@
 <div class="skill-group"><h3>Tools and Cloud</h3><div class="skill-pills"><span class="skill-pill">AWS EC2</span><span class="skill-pill">AWS SageMaker</span><span class="skill-pill">AWS Bedrock</span><span class="skill-pill">Docker</span><span class="skill-pill">n8n</span><span class="skill-pill">Streamlit</span><span class="skill-pill">Git / GitHub</span><span class="skill-pill">MySQL</span><span class="skill-pill">REST APIs</span><span class="skill-pill">Power BI</span><span class="skill-pill">Tableau</span></div></div>
 </section>
 
-<div class="section-grid">
-<a class="section-card" href="research.html"><span class="section-index">01</span><span class="section-title">Research</span><span class="section-arrow">OPEN PAGE →</span></a>
-<a class="section-card" href="experience.html"><span class="section-index">02</span><span class="section-title">Experience</span><span class="section-arrow">OPEN PAGE →</span></a>
+<div class="home-preview-grid">
 
-<div class="section-card projects-preview">
-<div>
+<section class="preview-card research-preview">
+<div class="section-index">01</div>
+<a class="preview-title-link" href="research.html"><h2 class="section-title">Research</h2></a>
+<div class="preview-list">
+<a href="research.html#gesture">Gesture Control for Enhanced Accessibility</a>
+<a href="research.html#xai">The Disagreement Dilemma in Explainable AI</a>
+</div>
+<a class="section-arrow" href="research.html">VIEW RESEARCH →</a>
+</section>
+
+<section class="preview-card experience-preview">
+<div class="section-index">02</div>
+<a class="preview-title-link" href="experience.html"><h2 class="section-title">Experience</h2></a>
+<div class="current-role-list">
+<div class="current-role"><span class="status-dot"></span><div><strong>AI &amp; Automation Intern</strong><small>Alnylam Pharmaceuticals</small></div></div>
+<div class="current-role"><span class="status-dot"></span><div><strong>Project Lead</strong><small>Silhouet Research</small></div></div>
+<div class="current-role"><span class="status-dot"></span><div><strong>Teaching Assistant</strong><small>Columbia University</small></div></div>
+</div>
+<a class="section-arrow" href="experience.html">SEE MORE →</a>
+</section>
+
+<section class="preview-card projects-preview">
 <div class="section-index">03</div>
-<a href="projects.html" style="text-decoration:none"><div class="section-title">Projects</div></a>
-<div class="project-mini-list">
-<a class="project-mini" href="projects.html#hallucination"><h3>Hallucination Detection &amp; Selective Abstention</h3><div class="tags"><span class="tag">Python</span><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">Model Calibration</span></div></a>
+<a class="preview-title-link" href="projects.html"><h2 class="section-title">Projects</h2></a>
+<div class="project-home-grid">
+<a class="project-mini" href="projects.html#hallucination"><h3>Hallucination Detection &amp; Selective Abstention</h3><div class="tags"><span class="tag">Python</span><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">Calibration</span></div></a>
 <a class="project-mini" href="projects.html#triage"><h3>GitHub Issue Triage Agent</h3><div class="tags"><span class="tag">RAG</span><span class="tag">FAISS</span><span class="tag">Streamlit</span><span class="tag">Pydantic</span></div></a>
 <a class="project-mini" href="projects.html#sql-agent"><h3>LLM Powered SQL Agent</h3><div class="tags"><span class="tag">n8n</span><span class="tag">MySQL</span><span class="tag">Docker</span><span class="tag">Ollama</span></div></a>
 <a class="project-mini" href="projects.html#visa"><h3>LCA Work Visa Trends</h3><div class="tags"><span class="tag">R</span><span class="tag">Quarto</span><span class="tag">EDA</span><span class="tag">Visualization</span></div></a>
 <a class="project-mini" href="projects.html#dataplayer"><h3>CSV OSC Data Player</h3><div class="tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">OSC</span><span class="tag">Data Streaming</span></div></a>
 </div>
-</div>
-<a class="section-arrow" href="projects.html" style="text-decoration:none">OPEN PROJECTS →</a>
-</div>
+<a class="section-arrow" href="projects.html">OPEN PROJECTS →</a>
+</section>
 
-<a class="section-card" href="contact.html"><span class="section-index">04</span><span class="section-title">Contact</span><span class="section-arrow">OPEN PAGE →</span></a>
-</div>
+<a class="contact-strip" href="contact.html">
+<div><span class="section-index">04</span><h2 class="section-title">Contact</h2></div>
+<span class="contact-strip-copy">Email · LinkedIn · GitHub · Google Scholar</span>
+<span class="section-arrow">OPEN CONTACT →</span>
+</a>
 
+</div>
 </main>
 
 <footer>
 <span>Nitanshi Bhardwaj · nb3308@columbia.edu</span>
 <span>MS Data Science · Columbia University · 2026</span>
 </footer>
-<script src="assets/site.js"></script>
+<script src="assets/site.js?v=20261009-3"></script>
 </body>
 </html>
