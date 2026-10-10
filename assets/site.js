@@ -103,7 +103,7 @@ if(hero){
     heroCanvas.style.height=hh+'px';
     hctx.setTransform(hdpr,0,0,hdpr,0,0);
 
-    const count=Math.max(34,Math.floor(hw/28));
+    const count=Math.max(14,Math.floor(hw/78));
     atoms=Array.from({length:count},makeAtom);
   }
 
